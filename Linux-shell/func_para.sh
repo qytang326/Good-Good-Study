@@ -1,0 +1,30 @@
+#!/bin/bash
+function addem {
+	if [ $# -eq 0 ] || [ $# -gt 2 ]
+	then
+		echo -1
+	elif [ $# -eq 1 ]
+	then
+		echo $[ $1 + $1 ]
+	else
+		echo $[ $1 + $2 ]
+	fi
+}
+echo -n "Adding 10 and 15:"
+value=$(addem 10 15)
+echo $value
+echo -n "Lets try adding just one number:"
+value=$(addem 10)
+echo $value
+echo -n "Now trying adding no number:"
+value=$(addem)
+echo $value
+echo -n "Final trying adding three numbers:"
+value=$(addem 10 15 20)
+echo $value
+
+echo $(addem $1 $2)
+echo $(addem $1 )
+echo $(addem)
+echo $(addem $1 $2 $3)
+

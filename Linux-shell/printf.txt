@@ -1,0 +1,4 @@
+Name     Chinese   English   Math    Average 
+DmTsai        80        60     92      77.33 
+VBird         75        55     80      70.00 
+Ken           60        90     70      73.33 
