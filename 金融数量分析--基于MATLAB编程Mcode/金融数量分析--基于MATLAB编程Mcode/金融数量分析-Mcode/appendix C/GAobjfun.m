@@ -1,0 +1,3 @@
+function f= GAobjfun2(x,a,b,c)
+f = (a - b*x(1)^2 + x(1)^4/3)*x(1)^2 + x(1)*x(2) + ...
+         (-c + c*x(2)^2)*x(2)^2;

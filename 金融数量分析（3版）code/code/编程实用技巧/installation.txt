@@ -1,0 +1,4 @@
+Installation Instructions:
+
+1) Extract the contents of this zip file.
+2) Add the top-level folder, 'customplots', to the MATLAB path.

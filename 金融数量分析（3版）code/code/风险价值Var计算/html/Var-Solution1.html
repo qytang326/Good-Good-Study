@@ -1,0 +1,245 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>&#35745;&#31639;&#25237;&#36164;&#32452;&#21512;&#39118;&#38505;&#20215;&#20540;&#65288;VaR)</title><meta name="generator" content="MATLAB 8.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2012-12-25"><meta name="DC.source" content="Solution1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>&#35745;&#31639;&#25237;&#36164;&#32452;&#21512;&#39118;&#38505;&#20215;&#20540;&#65288;VaR)</h1><!--introduction--><p>&#26412;&#31243;&#24207;&#20351;&#29992;&#19977;&#31181;&#19981;&#21516;&#30340;&#26041;&#27861;&#35745;&#31639;&#25237;&#36164;&#32452;&#21512;&#39118;&#38505;&#20215;&#20540; &#20855;&#20307;&#26041;&#27861;&#20026;&#65306;</p><div><ol><li>&#21382;&#21490;&#27169;&#25311;</li><li>&#21442;&#25968;&#27169;&#22411;</li><li>&#33945;&#29305;&#21345;&#32599;&#27169;&#25311;</li></ol></div><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Import data from Excel</a></li><li><a href="#2">Convert price series to return series and visualize historical returns</a></li><li><a href="#3">Visualize price series</a></li><li><a href="#4">Simple data analysis, mean, std, correlation, beta</a></li><li><a href="#5">Calculate return from price series</a></li></ul></div><h2>Import data from Excel<a name="1"></a></h2><pre class="codeinput"><span class="comment">%&#20174;Excel&#20013;&#35835;&#21462;&#25968;&#25454;</span>
+<span class="comment">%&#25991;&#20214;CSI300.xlsx&#65292;&#20013;&#26377;&#19977;&#20010;&#34920;&#65292;&#20998;&#21035;&#20026;&#27818;&#28145;300&#25351;&#25968;&#25104;&#20998;&#32929;&#20215;&#26684;&#24207;&#21015;&#65292;</span>
+<span class="comment">%&#27818;&#28145;300&#25351;&#25968;&#25104;&#20998;&#32929;&#26435;&#37325;&#65288;&#32929;&#25968;&#65289;&#12289;&#27818;&#28145;300&#25351;&#25968;&#20215;&#26684;&#12290;</span>
+<span class="comment">% [num,txt]=xlsread('CSI300.xlsx','CSI300');</span>
+<span class="comment">% CSI300Dates=txt(4:end,1);%&#26102;&#38388;</span>
+<span class="comment">% CSI300Tickers=txt(2,2:end);%&#32929;&#31080;&#21517;&#31216;</span>
+<span class="comment">% CSI300HistPrices=num;%&#25104;&#20998;&#32929;&#21382;&#21490;&#20215;&#26684;</span>
+<span class="comment">% [num,txt]=xlsread('CSI300.xlsx','Portfolio Positions');</span>
+<span class="comment">% positionsPortfolio=num;%positionsPortfolio &#32929;&#31080;&#25968;&#37327;</span>
+<span class="comment">% [num,txt]=xlsread('CSI300.xlsx','CSI300-Index');</span>
+<span class="comment">% pricesIndex=num;%&#25351;&#25968;&#20215;&#26684;</span>
+<span class="comment">% save CSI300Prices CSI300Dates CSI300Tickers CSI300HistPrices positionsPortfolio pricesIndex</span>
+</pre><h2>Convert price series to return series and visualize historical returns<a name="2"></a></h2><p>&#23558;&#25968;&#25454;&#36716;&#20026;&#25910;&#30410;&#29575;&#24207;&#21015;&#24182;&#30011;&#20986;&#21382;&#21490;&#25910;&#30410;&#26354;&#32447; &#22914;&#26524;&#25968;&#25454;&#24050;&#20648;&#23384;&#65288;&#38750;&#31532;&#19968;&#27425;&#36816;&#34892;&#65289;</p><pre class="codeinput">clear <span class="string">variables</span>
+load(<span class="string">'CSI300Prices.mat'</span>)
+</pre><h2>Visualize price series<a name="3"></a></h2><p>&#21487;&#35270;&#21270;&#20215;&#26684;&#24207;&#21015; &#26631;&#20934;&#21270;&#20215;&#26684;&#65292;&#21021;&#22987;&#20215;&#26684;&#20026;1.00</p><pre class="codeinput">normPrices = ret2tick(tick2ret(CSI300HistPrices));
+
+<span class="comment">% &#32472;&#21046;&#36873;&#23450;&#32929;&#31080;&#30340;&#26631;&#20934;&#21270;&#20215;&#26684;&#65292;'&#19975;&#31185;A'&#65292;'&#28493;&#26612;&#21160;&#21147;'&#65292;'&#19978;&#28023;&#33021;&#28304;'</span>
+<span class="comment">%&#36873;&#23450;&#32929;&#31080;</span>
+mypick = strcmpi(CSI300Tickers, <span class="string">'&#19975;&#31185;A'</span>) | strcmpi(CSI300Tickers, <span class="string">'&#28493;&#26612;&#21160;&#21147;'</span>) <span class="keyword">...</span>
+    | strcmpi(CSI300Tickers, <span class="string">'&#19978;&#28023;&#33021;&#28304;'</span>);
+<span class="comment">%&#36873;&#23450;&#32929;&#31080;&#20215;&#26684;&#24207;&#21015;</span>
+mypickStockPrices = CSI300HistPrices(:, mypick);
+<span class="comment">%&#36873;&#23450;&#32929;&#31080;&#30340;&#26631;&#20934;&#20215;&#26684;</span>
+mypickNormPrices = normPrices(:, mypick);
+<span class="comment">%&#36873;&#23450;&#32929;&#31080;&#30340;&#21517;&#31216;</span>
+mypickCSI300Tickers = CSI300Tickers(mypick);
+<span class="comment">%&#32472;&#21046;&#22270;&#24418;</span>
+plot(mypickNormPrices,<span class="string">'DisplayName'</span>,<span class="string">'mypickNormPrices'</span>,<span class="string">'YDataSource'</span>,<span class="string">'mypickNormPrices'</span>);figure(gcf)
+legend(mypickCSI300Tickers)
+normIndexPrice = ret2tick(tick2ret(pricesIndex));<span class="comment">%&#25351;&#25968;&#26631;&#20934;&#20215;&#26684;</span>
+hold <span class="string">all</span>
+plot(normIndexPrice,<span class="string">'DisplayName'</span>,<span class="string">'Index'</span>,<span class="string">'YDataSource'</span>,<span class="string">'normIndexPrice'</span>);figure(gcf)
+</pre><img vspace="5" hspace="5" src="Solution1_01.png" alt=""> <h2>Simple data analysis, mean, std, correlation, beta<a name="4"></a></h2><pre class="codeinput"><span class="comment">%&#26679;&#26412;&#32929;&#31080;&#20215;&#26684;&#20998;&#26512;&#65292;&#22343;&#20540;&#12289;&#26631;&#20934;&#24046;&#12289;&#30456;&#20851;&#24615;&#19982;beta</span>
+<span class="comment">%&#20215;&#26684;&#36716;&#25910;&#30410;&#29575;</span>
+mypickRet = tick2ret(mypickStockPrices, [], <span class="string">'Continuous'</span>);
+mean(mypickRet)<span class="comment">%&#22343;&#20540;</span>
+std(mypickRet)<span class="comment">%&#26631;&#20934;&#24046;</span>
+maxdrawdown(mypickStockPrices)  <span class="comment">%&#26368;&#22823;&#22238;&#25764;</span>
+corrcoef(mypickRet)<span class="comment">% &#30456;&#20851;&#24615;</span>
+
+<span class="comment">% &#31616;&#21333;Beta&#35745;&#31639;</span>
+IndexRet = tick2ret(pricesIndex);<span class="comment">%&#25351;&#25968;&#25910;&#30410;&#29575;</span>
+SZ02 = tick2ret(mypickStockPrices(:,1));<span class="comment">%&#36873;&#20013;&#32929;&#31080;&#20215;&#26684;&#36716;&#20026;&#25910;&#30410;&#29575;</span>
+
+<span class="comment">% &#33258;&#21160;&#29983;&#25104;&#22270;&#29255;(cftool)</span>
+[fitresult, gof] = createFit(IndexRet, SZ02)
+</pre><pre class="codeoutput">
+ans =
+
+    0.0006   -0.0013   -0.0001
+
+
+ans =
+
+    0.0185    0.0194    0.0214
+
+
+ans =
+
+    0.1063    0.2317    0.2219
+
+
+ans =
+
+    1.0000    0.7046    0.6492
+    0.7046    1.0000    0.7420
+    0.6492    0.7420    1.0000
+
+
+fitresult = 
+
+     Linear model Poly1:
+     fitresult(x) = p1*x + p2
+     Coefficients (with 95% confidence bounds):
+       p1 =      0.9757  (0.8063, 1.145)
+       p2 =     0.00113  (-0.001312, 0.003571)
+
+gof = 
+
+           sse: 0.0134
+       rsquare: 0.5847
+           dfe: 93
+    adjrsquare: 0.5802
+          rmse: 0.0120
+
+</pre><img vspace="5" hspace="5" src="Solution1_02.png" alt=""> <h2>Calculate return from price series<a name="5"></a></h2><pre class="codeinput"><span class="comment">%&#35745;&#31639;&#20215;&#26684;&#24207;&#21015;&#30340;&#25910;&#30410;&#29575;</span>
+<span class="comment">%&#25104;&#20998;&#32929;&#21382;&#21490;&#25910;&#30410;&#29575; 'Continuous'&#25351;&#25968;&#24418;&#24335;</span>
+returnsSecurity = tick2ret(CSI300HistPrices,[],<span class="string">'Continuous'</span>);
+<span class="comment">%&#32047;&#35745;&#25910;&#30410;&#29575;</span>
+totalReturns = sum(returnsSecurity);
+numDays = size(CSI300HistPrices, 1);
+
+<span class="comment">% &#32472;&#21046;&#32929;&#31080;&#28909;&#24863;&#22270;&#65288;&#20108;&#32500;&#65289;</span>
+<span class="comment">%For more information edit the M-file "makeHeatmap.m"</span>
+makeHeatmap(totalReturns(end, :), CSI300Tickers, numDays, <span class="string">'returns'</span>, <span class="string">'matlab'</span>);
+
+<span class="comment">% [EOF]</span>
+</pre><img vspace="5" hspace="5" src="Solution1_03.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2012b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% 计算投资组合风险价值（VaR)-1
+% 本程序使用三种不同的方法计算投资组合风险价值
+% 具体方法为：
+% 
+% # 历史模拟
+% # 参数模型
+% # 蒙特卡罗模拟 
+
+%% Import data from Excel
+%从Excel中读取数据
+%文件CSI300.xlsx，中有三个表，分别为沪深300指数成分股价格序列，
+%沪深300指数成分股权重（股数）、沪深300指数价格。
+% [num,txt]=xlsread('CSI300.xlsx','CSI300');
+% CSI300Dates=txt(4:end,1);%时间
+% CSI300Tickers=txt(2,2:end);%股票名称
+% CSI300HistPrices=num;%成分股历史价格
+% [num,txt]=xlsread('CSI300.xlsx','Portfolio Positions');
+% positionsPortfolio=num;%positionsPortfolio 股票数量
+% [num,txt]=xlsread('CSI300.xlsx','CSI300-Index');
+% pricesIndex=num;%指数价格
+% save CSI300Prices CSI300Dates CSI300Tickers CSI300HistPrices positionsPortfolio pricesIndex
+%% Convert price series to return series and visualize historical returns
+% 将数据转为收益率序列并画出历史收益曲线
+% 如果数据已储存（非第一次运行）
+clear variables
+load('CSI300Prices.mat')
+
+%% Visualize price series
+% 可视化价格序列
+% 标准化价格，初始价格为1.00
+normPrices = ret2tick(tick2ret(CSI300HistPrices));
+
+% 绘制选定股票的标准化价格，'万科A'，'潍柴动力'，'上海能源'
+%选定股票
+mypick = strcmpi(CSI300Tickers, '万科A') | strcmpi(CSI300Tickers, '潍柴动力') ...
+    | strcmpi(CSI300Tickers, '上海能源');
+%选定股票价格序列
+mypickStockPrices = CSI300HistPrices(:, mypick);
+%选定股票的标准价格
+mypickNormPrices = normPrices(:, mypick);
+%选定股票的名称
+mypickCSI300Tickers = CSI300Tickers(mypick);
+%绘制图形
+plot(mypickNormPrices,'DisplayName','mypickNormPrices','YDataSource','mypickNormPrices');figure(gcf)
+legend(mypickCSI300Tickers)
+normIndexPrice = ret2tick(tick2ret(pricesIndex));%指数标准价格
+hold all
+plot(normIndexPrice,'DisplayName','Index','YDataSource','normIndexPrice');figure(gcf)
+%% Simple data analysis, mean, std, correlation, beta
+%样本股票价格分析，均值、标准差、相关性与beta
+%价格转收益率
+mypickRet = tick2ret(mypickStockPrices, [], 'Continuous');
+mean(mypickRet)%均值
+std(mypickRet)%标准差
+maxdrawdown(mypickStockPrices)  %最大回撤
+corrcoef(mypickRet)% 相关性
+
+% 简单Beta计算
+IndexRet = tick2ret(pricesIndex);%指数收益率
+SZ02 = tick2ret(mypickStockPrices(:,1));%选中股票价格转为收益率
+
+% 自动生成图片(cftool)
+[fitresult, gof] = createFit(IndexRet, SZ02)
+
+%% Calculate return from price series
+%计算价格序列的收益率
+%成分股历史收益率 'Continuous'指数形式
+returnsSecurity = tick2ret(CSI300HistPrices,[],'Continuous');
+%累计收益率
+totalReturns = sum(returnsSecurity);
+numDays = size(CSI300HistPrices, 1);
+
+% 绘制股票热感图（二维）  
+%For more information edit the M-file "makeHeatmap.m"
+makeHeatmap(totalReturns(end, :), CSI300Tickers, numDays, 'returns', 'matlab');
+
+% [EOF]
+##### SOURCE END #####
+--></body></html>

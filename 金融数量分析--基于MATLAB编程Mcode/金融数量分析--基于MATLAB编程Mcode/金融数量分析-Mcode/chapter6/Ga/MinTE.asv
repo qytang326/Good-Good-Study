@@ -1,0 +1,17 @@
+% [x,fval,exitflag,output,population,score] = MinTE(nvars,Aeq,beq)
+% MinTE 
+%code by ariszheng@gmail.com 2009-8-6
+%%
+options = gaoptimset;
+% Modify options setting
+options = gaoptimset(options,'Display', 'off');
+%‘off’为不显示迭代过程，‘on’为显示迭代过程
+%%
+%x1+x2+…+x10=1
+Aeq=ones(1,10);
+beq=1.0;
+%x1+x2+…+x10>=0
+lb=zeros(1,10);
+load stockdata;
+[x,fval,exitflag,output,population,score] = ...
+ga(@TEobj,nvars,[],[],Aeq,beq,lb,[],[],options);

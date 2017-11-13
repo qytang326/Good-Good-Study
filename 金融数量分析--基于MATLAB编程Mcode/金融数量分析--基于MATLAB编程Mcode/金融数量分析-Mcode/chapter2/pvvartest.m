@@ -1,0 +1,10 @@
+CashFlow=[ -8000,2500,1500,3000,1000,2000 ];
+Rate=0.08;
+IrrCFDates = ['01/12/2009'    %³õÊ¼Í¶×Ê
+              '02/14/2010'    %CF1=2500
+              '03/03/2011'    %CF2=1500
+              '06/14/2012'    %CF3=3000
+              '12/01/2013'    %CF4=1000
+              '12/31/2014' ]; %CF5=2000
+PresentVal1 = pvvar(CashFlow, Rate)
+PresentVal2= pvvar(CashFlow, Rate, IrrCFDates)

@@ -1,0 +1,24 @@
+load TestData
+Hs300Rate=price2ret(Hs300);
+%%
+m=mean(Hs300Rate)
+%%
+s1=std(Hs300Rate)
+s2=std(Hs300Rate,0)
+s3=std(Hs300Rate,1)
+%
+RateMax=max(Hs300Rate)
+%最大值，最大值的位置
+[RateMax,Idx]=max(Hs300Rate)
+%最大值日期
+Datestr(Date(Idx))
+%%
+%最小值
+RateMin=min(Hs300Rate)
+%极差
+RateRange=range(Hs300Rate)
+RateRange1=max(Hs300Rate)-min(Hs300Rate)
+%median 
+RateMedian=median(Hs300Rate)
+%mode
+RateMode=mode(Hs300Rate)

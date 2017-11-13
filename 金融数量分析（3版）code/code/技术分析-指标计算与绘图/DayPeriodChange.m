@@ -1,0 +1,1 @@
+function [NewDate,NewData]=DayPeriodChange(Date,Data)

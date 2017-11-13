@@ -1,0 +1,10 @@
+%%
+%系统计算精度
+eps
+%%
+%最大数值
+realmax
+%%
+pi
+%%
+realmin
