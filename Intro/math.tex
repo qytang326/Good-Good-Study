@@ -1,0 +1,99 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath} %导入amsmath宏包支持数学公式
+\title{Hello,World}
+\author{Quanyin Tang}
+\date{2018年1月17日}
+\begin{document}
+
+\maketitle
+
+Einstein's $E=mc^2$. %行间  $...$
+
+\[ E=mc^2 \]  %行间 \[ ... \]
+
+\begin{equation} %编辑行间公式
+E=mc^2
+\end{equation}
+
+\[C^m_n\]		% 在数学模式中，需要表示上标，可以使用 ^ 来实现（下标则是 _）
+\[ z = r\cdot e^{2\pi i}. \] %上下标默认只作用于之后的一个字符，如果想对连续的几个字符起作用，请将这些字符用花括号 {} 括起来
+
+%根号,分号
+$\sqrt{x}$, $\frac{1}{2}$.
+\[ \sqrt{x^2+y^2}, \]
+\[ \frac{1}{2}. \]
+$\dfrac{1}{2}$ %强制行内模式的分式显示为行间模式的大小
+\[ \tfrac{1}{2} \]%反之
+
+%运算符
+\[ \pm\; \times \; \div\; \cdot\; \cap\; \cup\; \geq\; \leq\; \neq\; \approx \; \equiv \] 
+
+%连加、连乘、极限、积分
+\[ \sum\; \prod\;  \lim\;  \int \] 
+$ \sum_{i=1}^n i\quad \prod_{i=1}^n $
+$ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $ %用 \limits 和 \nolimits 来强制显式地指定是否压缩这些上下标
+\[ \lim_{x\to0}x^2 \quad \int_a^b x^2 dx \]
+\[ \lim\nolimits _{x\to0}x^2\quad \int\nolimits_a^b x^2 dx \]
+\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \] %多重积分
+
+%% 括号等结果
+\[ \Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) \] 
+\[ \Biggl[\biggl[\Bigl[\bigl[[x]\bigr]\Bigr]\biggr]\Biggr] \]
+\[ \Biggl \{\biggl \{\Bigl \{\bigl \{\{x\}\bigr \}\Bigr \}\biggr \}\Biggr\} \]
+\[ \Biggl\langle\biggl\langle\Bigl\langle\bigl\langle\langle x
+\rangle\bigr\rangle\Bigr\rangle\biggr\rangle\Biggr\rangle \]
+\[ \Biggl\lvert\biggl\lvert\Bigl\lvert\bigl\lvert\lvert x
+\rvert\bigr\rvert\Bigr\rvert\biggr\rvert\Biggr\rvert \]
+\[ \Biggl\lVert\biggl\lVert\Bigl\lVert\bigl\lVert\lVert x
+\rVert\bigr\rVert\Bigr\rVert\biggr\rVert\Biggr\rVert \]
+
+%%省略号用\dots \cdots \vdots \ddots表示
+\[ x_1,x_2,\dots ,x_n\quad 1,2,\cdots ,n\quad
+\vdots\quad \ddots \]
+
+%%矩阵
+\[ 
+\begin{pmatrix} a&b\\c&d \end{pmatrix} \quad
+\begin{bmatrix} a&b\\c&d \end{bmatrix} \quad
+\begin{Bmatrix} a&b\\c&d \end{Bmatrix} \quad
+\begin{vmatrix} a&b\\c&d \end{vmatrix} \quad
+\begin{Vmatrix} a&b\\c&d \end{Vmatrix} 
+\]
+
+%%行内小矩阵
+Marry has a little matrix $( \begin{smallmatrix} a&b\\c&d \end{smallmatrix})$
+
+%多行公式
+%%长公式(不对齐)，使用multline环境,不编号使用multline*代替
+\begin{multline}
+x=a+b+c+{}\\
+d+e+f+g
+\end{multline}
+%%对齐,使用aligned
+\[
+\begin{aligned}
+x={}& a+b+c+{}\\
+&d+e+f+g
+\end{aligned}
+\]
+
+%公式组,无需对齐用gather环境，对齐用align环境，不带编号的话加星号
+\begin{gather}
+a = b+c+d \\
+x = y+z
+\end{gather}
+\begin{align}
+a &= b+c+d \\
+x &= y+z
+\end{align}
+
+%分段函数,用cases
+\[
+y=\begin{cases}
+-x,\quad x\leq 0\\
+x,\quad x>0
+\end{cases}
+\]
+
+\end{document}
+

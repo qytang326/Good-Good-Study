@@ -1,0 +1,36 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{geometry}		%%使用geometry宏包进行页边距设置
+\geometry{papersize={20cm,15cm}}	%将纸张大小设为长度20cm,宽度15cm
+\geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}%设置左边距，右边距，上边距，下边距
+
+\usepackage{fancyhdr}		%使用fancyhdr设置页眉页脚
+\pagestyle{fancy}
+\lhead{Quanyin}			%左页眉
+\chead{2018年1月20日}	%中页眉
+\rhead{183xxxxxxxx}		%右页眉
+\lfoot{}					%左页脚
+\cfoot{\thepage}			%中页脚
+\rfoot{}					%右页脚
+\renewcommand{\headrulewidth}{0.4pt}	%页眉和正文之间加一道宽为0.4ptd的横线
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0pt}
+
+
+%首行缩进
+%%CTex宏集默认使用首行缩进。如果用其他包的话，在导言区设置：
+%%\usepackage{indentfirst}
+%%\setlength{\parindent}{\ccwd}设置首行缩进的大小
+
+%行间距
+\usepackage{setspace} 	%使用setspace宏包
+\onehalfspacing			%行距是字号的1.5倍
+
+%段间距
+%%通过修改长度\parskip的值来调整段间距
+\addtolength{\parskip}{.4em}	%%增加段间距0.4em,减小则改为负值
+
+
+\begin{document}
+你好，world!首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进
+\end{document}

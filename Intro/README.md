@@ -1,0 +1,1 @@
+这个文件夹下的代码来自于[一份其实很短的 LaTeX 入门文档](https://liam0205.me/2014/09/08/latex-introduction/)

@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{graphicx}		%%使用graphicx宏包
+\begin{document}
+\includegraphics{Fudan-Logo.png}	%%使用includegraphics命令插入图片
+
+\includegraphics[width = .8\textwidth]{Fudan-Logo.png} %%调整图片大小,宽度设为页面宽度的80%
+
+
+%插入表格
+\begin{tabular}{|l|c|r|}	 	% |表示竖线，lcr分别表示居左中右
+ \hline   %表示横线
+操作系统& 发行版& 编辑器\\		% &用来分列 \\用来换行
+ \hline
+Windows & MikTeX & TexMakerX \\
+ \hline
+Unix/Linux & teTeX & Kile \\
+ \hline
+Mac OS & MacTeX & TeXShop \\
+ \hline
+通用& TeX Live & TeXworks \\
+ \hline
+\end{tabular}
+
+%浮动体
+\begin{figure}[htbp]		%htbp用来指定插图的理想位置（这里，页顶，页尾，浮动页）
+\centering 				%用来使插图居中
+\includegraphics{Fudan-Logo.png}
+\caption{复旦Logo}			%设置插图标题
+\label{fig:myphoto}		%给标题加上编号
+\end{figure}
+
+\end{document}
